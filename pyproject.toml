@@ -1,0 +1,35 @@
+[project]
+name = "marketing-agent"
+version = "0.1.0"
+description = "AI marketing agent SaaS for F&B businesses"
+requires-python = ">=3.12"
+dependencies = [
+    "crewai>=1.15.1",
+    "crewai-tools>=0.47.0",
+    "supabase>=2.31.0",
+    "pydantic>=2.11.9,<2.13",
+    "pydantic-settings>=2.6.0,<3.0",
+    "python-dotenv>=1.2.2",
+    "anthropic>=0.113.0",
+    "google-generativeai>=0.8.6",
+    "httpx>=0.28.1",
+    "typer>=0.26.8",
+    "rich>=13.7.0,<15.0.0",
+]
+
+[project.scripts]
+marketing-agent = "marketing_agent.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["marketing_agent"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.9.0",
+]
